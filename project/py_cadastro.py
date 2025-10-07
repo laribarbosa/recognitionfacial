@@ -28,11 +28,11 @@ class TCadastro(Screen):
 
     # SISTEMA DE RECONHECIMENTO
     def eigen(self):
-        os.system('python project/script/eigen.py')
+        os.system('python C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/eigen.py') # Editar o caminho de acordo com o clone na máquina
 
     # SISTEMA DE DETECÇÃO
     def register_foto(self):
-        os.system('python project/script/detection.py') 
+        os.system('python C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/detection.py') # Editar o caminho de acordo com o clone na máquina
 
     # INSERIR OS VALORES NO BANCO DE DADOS
     def insert_values_in_dabatase(self):

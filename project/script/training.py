@@ -11,7 +11,8 @@ eigenFace = cv2.face.EigenFaceRecognizer_create(num_components = 50,threshold=0)
 fisherFace = cv2.face.FisherFaceRecognizer_create()
 lbph = cv2.face.LBPHFaceRecognizer_create()
 def getImagemComId():
-    caminhos = [os.path.join('./treinamento',f) for f in os.listdir('./treinamento')]
+    caminhos = [os.path.join('C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/treinamento',f) 
+                for f in os.listdir('C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/treinamento/')]
     print(caminhos)
     faces = []
     ids = []
@@ -29,7 +30,7 @@ ids,faces = getImagemComId()
 #print(ids)
 print("Treinando...")
 eigenFace.train(faces,ids)
-eigenFace.write('./lib/classificadorEigen.yml')
+eigenFace.write('C:/Users/larissa.siqueira/Documents/recognitionfacial/lib/classificadorEigen.yml') # Editar o caminho de acordo com o clone na máquina
 
 
 print("Treinamento Realizado")

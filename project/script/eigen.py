@@ -6,9 +6,9 @@ from kivy.lang import Builder
 import cv2
 
 camera = cv2.VideoCapture(0)
-detectorFace = cv2.CascadeClassifier("./lib/haarcascade_frontalface_default.xml")
+detectorFace = cv2.CascadeClassifier("C:/Users/larissa.siqueira/Documents/recognitionfacial/lib/haarcascade_frontalface_default.xml") # Editar o caminho de acordo com o clone na máquina
 reconhecedor = cv2.face.EigenFaceRecognizer_create()
-reconhecedor.read("./lib/classificadorEigen.yml")
+reconhecedor.read("C:/Users/larissa.siqueira/Documents/recognitionfacial/lib/classificadorEigen.yml") # Editar o caminho de acordo com o clone na máquina
 largura, altura = 220, 220
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 id_t = ''
@@ -34,8 +34,8 @@ while (True):
                     
     cv2.imshow("Face",imagem)
 
-    if cv2.waitKey(1) == ord('q'):
-        Builder.load_file('../kv_showresults.kv')  # Carrega o arquivo 
+    if cv2.waitKey(1) == ord('q'): # Carrega o arquivo
+        Builder.load_file('C:/Users/larissa.siqueira/Documents/recognitionfacial/project/kv_showresults.kv') # Editar o caminho de acordo com o clone na máquina
 
         class AnswerInput(Screen):
             pass
@@ -52,7 +52,7 @@ while (True):
             cargo = "Cargo: " + result[2]
             email = "Email: " + result[3]
             cpf = "CPF: " + result[4]
-            source_ = './treinamento/pessoa.'+str(result[0])+'.1.jpg'
+            source_ = 'C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/treinamento/pessoa.'+str(result[0])+'.1.jpg' # Editar o caminho de acordo com o clone na máquina
 
             def build(self):
                 return AnswerInput()

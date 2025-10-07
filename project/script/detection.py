@@ -34,11 +34,11 @@ print(a)
 # --- CONFIGURAÇÃO DA CAMERA --- #
 
 webcam = cv2.VideoCapture(0)
-face_cascade = cv2.CascadeClassifier("./lib/haarcascade_frontalface_default.xml")
-eye_cascade = cv2.CascadeClassifier("./lib/haarcascade_eye.xml")
+face_cascade = cv2.CascadeClassifier("C:/Users/larissa.siqueira/Documents/recognitionfacial/lib/haarcascade_frontalface_default.xml") # Editar o caminho de acordo com o clone na máquina
+eye_cascade = cv2.CascadeClassifier("C:/Users/larissa.siqueira/Documents/recognitionfacial/lib/haarcascade_eye.xml") # Editar o caminho de acordo com o clone na máquina
 
 amostra = 1
-numeroAmostras = 8
+numeroAmostras = 4
 largura, altura = 220, 220
 
 print("Capturando as faces")
@@ -55,7 +55,7 @@ while (True):
         region = video[y:y+h, x:x+w]
         if (amostra == 1):
             print(a)
-            cv2.imwrite("./treinamento/pessoa." + str(a) + "." + str(amostra) + ".jpg", region)
+            cv2.imwrite("C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/treinamento/pessoa" + str(a) + "." + str(amostra) + ".jpg", region) # Editar o caminho de acordo com o clone na máquina
         eyeCinza = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
         eyeDetected = eye_cascade.detectMultiScale(eyeCinza)
         for (ox, oy, ow, oh) in eyeDetected:
@@ -64,8 +64,8 @@ while (True):
     if cv2.waitKey(1) & 0xFF == ord('q'):
         imagemFace = cv2.resize(
             imagemCinza[y:y + w, x:x + h], (largura, altura))
-        cv2.imwrite("./treinamento/pessoa." + str(a) + "." +
-                    str(amostra) + ".jpg", imagemFace)
+        cv2.imwrite("C:/Users/larissa.siqueira/Documents/recognitionfacial/project/script/treinamento/pessoa" + str(a) + "." +
+                    str(amostra) + ".jpg", imagemFace) # Editar o caminho de acordo com o clone na máquina
         print("foto" + str(amostra) + " Capturada com Sucesso")
         amostra += 1
     if (amostra >= numeroAmostras + 1):
